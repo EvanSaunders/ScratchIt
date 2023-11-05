@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module type="JAVA_MODULE" version="4">
-  <component name="AdditionalModuleElements">
-    <content url="file://$MODULE_DIR$" dumb="true">
-      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
-    </content>
+<module version="4">
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration spring_boot_spring_config_custom_files="file://$MODULE_DIR$/src/main/resources/templates/application.properties">
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/org/example/Main.java</file>
+        </fileset>
+      </configuration>
+    </facet>
   </component>
 </module>

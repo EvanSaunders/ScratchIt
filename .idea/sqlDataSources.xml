@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="49e8790e-7f5a-4aef-be62-1007c0feba0f" name="postgres@monorail.proxy.rlwy.net Mapping">
+      <data-sources db="ede2950d-5d86-4c92-9166-baba0439805b" />
+    </mapping>
+  </component>
+</project>
