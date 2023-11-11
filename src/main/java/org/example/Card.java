@@ -1,18 +1,33 @@
-/**
 package org.example;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-@Entity
+@Entity(name = "Card")
+@Table(name = "card", uniqueConstraints = {@UniqueConstraint(name = "card_email_unique", columnNames = "email")})
+
 public class Card {
     @Id
+    @SequenceGenerator(name = "card_sequence", sequenceName = " card_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "card_sequence" )
+    @Column(name = "id", updatable = false)
     private Long id;
+    @Column(name = "email", nullable = false, columnDefinition = "TEXT", unique = true)
     private String email;
+    @Column(name = "name", nullable = false, columnDefinition = "TEXT")
+    private String name;
+    @Column(name = "message", nullable = true, columnDefinition = "TEXT")
+    private String message;
+    @Column(name = "is_winner", nullable = false, columnDefinition = "BOOLEAN")
+    private Boolean is_winner;
 
-    public Card(Long id, String email) {
-        this.id = id;
+
+    public Card(String email, String name, String message, Boolean is_winner) {
+
         this.email = email;
+        this.name = name;
+        this.message = message;
+        this.is_winner = is_winner;
+
     }
 
     public Card() {
@@ -25,8 +40,21 @@ public class Card {
     }
 
 
+
     public String getEmail() {
         return email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public Boolean getWinner() {
+        return is_winner;
     }
 
     public void setId(Long id) {
@@ -37,6 +65,18 @@ public class Card {
         this.email = email;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setWinner(Boolean winner) {
+        is_winner = winner;
+    }
+
     @Override
     public String toString() {
         return "Card{" +
@@ -45,4 +85,3 @@ public class Card {
                 '}';
     }
 }
-**/

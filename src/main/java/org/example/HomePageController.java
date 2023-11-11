@@ -11,5 +11,10 @@ public class HomePageController {
         return "homePage";
     }
 
+    @GetMapping("/createCard")
+    public String createCard() {
+        return "createCardPage";
+    }
+
     //Do /error
 }

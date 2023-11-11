@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+
+<div class = "centerColumn">
+  <h1 class="basicText">Create Your Card!</h1>
+  <br>
+  <form action="/cardGenerator" method="get">
+    <label class="basicText" for="email">Email:</label>
+    <input type="email" id="email" name="email">
+
+    <label class="basicText" for="name">Name:</label>
+    <input type="text" id="name" name="name">
+
+    <label class="basicText" for="message">Message:</label>
+    <textarea id="message" name="message"></textarea>
+
+    <label class = "basicText" for="numToSend">How many to create? </label>
+    <input type="number" id="numToSend" name="numToSend" min="1" max = "10" value="1">
+
+    <label class = "basicText" for="chanceToWin">Percent of Winners? </label>
+    <input type="number" id="chanceToWin" name="chanceToWin" min="1" max = "100" value="50">
+
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <button class="button" onclick="window.location.href='/'"> Home</button>
+</div>
+
+
+</body>
+</html>
