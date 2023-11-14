@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import Appbar from "./components/Appbar"
-import Card from "./components/Card"
+import UserFields from "./components/UserFields"
 function App() {
   return (
     <div className="App">
       <Appbar/>
-        <Card/>
+        <UserFields/>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import org.example.Card;
+import org.example.CardSetInfo;
 import org.example.service.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class CardController {
     @Autowired
     public CardController(CardService cardService) {
@@ -34,8 +36,9 @@ public class CardController {
     @PostMapping("/add")
     public String add(@RequestBody Card card){
         cardService.saveCard(card);
-        return "Card Added Succesfully";
+        return "UserFields Added Succesfully";
     }
+
 
     @GetMapping("/getAll")
     public List<Card> getAllCards(){
@@ -43,6 +46,10 @@ public class CardController {
         return cardService.getAllCards();
     }
 
-
+    @PostMapping("/cardSetInfo")
+    public String cardSetInfo(@RequestBody CardSetInfo cardSetInfo){
+        System.out.println(cardSetInfo.getMessage());
+        return cardSetInfo.getName();
+    }
 
 }

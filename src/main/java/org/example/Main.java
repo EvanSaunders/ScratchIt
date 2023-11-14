@@ -16,7 +16,7 @@ public class Main {
   //  @Bean
   //  CommandLineRunner commandLineRunner(CardRepository cardRepository){
       //  return args ->{
-       //     Card examp = new Card(
+       //     UserFields examp = new UserFields(
        //             "ex@gmail.com",
        //             "John Doe",
        //             "Have fun",

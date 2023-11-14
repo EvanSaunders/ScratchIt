@@ -3,7 +3,7 @@ package org.example;
 import jakarta.persistence.*;
 
 @Entity(name = "Card")
-@Table(name = "card", uniqueConstraints = {@UniqueConstraint(name = "card_email_unique", columnNames = "email")})
+@Table(name = "card")
 
 public class Card {
     @Id
@@ -11,7 +11,7 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "card_sequence" )
     @Column(name = "id", updatable = false)
     private Long id;
-    @Column(name = "email", nullable = false, columnDefinition = "TEXT", unique = true)
+    @Column(name = "email", nullable = false, columnDefinition = "TEXT")
     private String email;
     @Column(name = "name", nullable = false, columnDefinition = "TEXT")
     private String name;
@@ -19,6 +19,9 @@ public class Card {
     private String message;
     @Column(name = "is_winner", nullable = false, columnDefinition = "BOOLEAN")
     private Boolean is_winner;
+
+    @Column(name = "is_opened", nullable = false, columnDefinition = "BOOLEAN")
+    private Boolean is_opened;
 
 
     public Card(String email, String name, String message, Boolean is_winner) {
@@ -57,6 +60,10 @@ public class Card {
         return is_winner;
     }
 
+    public Boolean getIs_opened() {
+        return is_opened;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -73,13 +80,17 @@ public class Card {
         this.message = message;
     }
 
+    public void setIs_opened(Boolean is_opened) {
+        this.is_opened = is_opened;
+    }
+
     public void setWinner(Boolean winner) {
         is_winner = winner;
     }
 
     @Override
     public String toString() {
-        return "Card{" +
+        return "UserFields{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
                 '}';
