@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.yaml.snakeyaml.tokens.Token;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -12,4 +13,6 @@ import java.util.UUID;
 public interface CardRepository extends JpaRepository<Card, Long> {
 
     Optional<Card> findById(UUID primaryKey);
+
+    List<Card> findByEmail(String email);
 }

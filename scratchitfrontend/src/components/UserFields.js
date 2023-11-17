@@ -5,9 +5,14 @@ import Button from "@mui/material/Button";
 
 export default function UserFields() {
     const [name, setName] = useState("");
+
     const [email, setEmail] = useState("");
+    const [emailError, setEmailError] = useState('');
+
     const [messageT, setMessage] = useState("");
+
     const [numToSend, setNumToSend] = useState(1);
+
     const [numToWin, setNumToWin] = useState(0);
 
     const handleClick = (e) => {
@@ -41,6 +46,19 @@ export default function UserFields() {
             });
     };
 
+    const handleEmailChange = (event) => {
+        const enteredEmail = event.target.value;
+        setEmail(enteredEmail);
+
+        // Basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const isValidEmail = emailRegex.test(enteredEmail);
+
+        setEmailError(isValidEmail ? '' : 'Please enter a valid email address');
+    };
+
+
+
     return (
         <Container>
             <form>
@@ -57,7 +75,10 @@ export default function UserFields() {
                     label="Email"
                     variant="outlined"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={handleEmailChange}
+                    error={!!emailError}
+                    helperText={emailError}
+
                     style={{ marginBottom: 16 }}
                 />
 

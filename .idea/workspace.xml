@@ -16,8 +16,8 @@
         <option value="spring-beans.schema" />
         <option value="HTML File" />
         <option value="Interface" />
-        <option value="JavaScript File" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -131,7 +131,8 @@
       <workItem from="1699828570540" duration="3513000" />
       <workItem from="1699834275932" duration="5077000" />
       <workItem from="1699912004227" duration="11670000" />
-      <workItem from="1700181473053" duration="5734000" />
+      <workItem from="1700181473053" duration="5827000" />
+      <workItem from="1700258188730" duration="4030000" />
     </task>
     <servers />
   </component>
@@ -156,6 +157,11 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="5" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/scratchitfrontend/src/components/UserFields.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

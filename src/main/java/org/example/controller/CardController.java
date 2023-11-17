@@ -1,6 +1,5 @@
 package org.example.controller;
 
-import jakarta.persistence.Id;
 import org.example.Card;
 import org.example.CardSetInfo;
 import org.example.service.CardService;
@@ -8,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -31,9 +31,15 @@ public class CardController {
         return "UserFields Added Succesfully";
     }
 
+    @GetMapping("/viewSentCards")
+    public List<Card> viewSentCards(@RequestParam String email){
+        return cardService.findByEmail(email);
+    }
+
+
     @GetMapping("/viewCard")
-    public String viewCard(UUID primaryKey){
-        return cardService.findById(primaryKey).toString();
+    public Optional<Card> viewCard(@PathVariable UUID primaryKey){
+        return cardService.findById(primaryKey);
     }
 
 

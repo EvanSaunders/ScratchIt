@@ -33,4 +33,7 @@ public class CardServiceImp implements CardService {
 
     @Override
     public Optional<Card> findById(UUID primaryKey){return cardRepository.findById(primaryKey);}
+
+    @Override
+    public List<Card> findByEmail(String email){return cardRepository.findByEmail(email);}
 }
