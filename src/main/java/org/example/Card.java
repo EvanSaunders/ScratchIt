@@ -1,16 +1,19 @@
 package org.example;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
+
+import java.util.UUID;
 
 @Entity(name = "Card")
 @Table(name = "card")
 
 public class Card {
     @Id
-    @SequenceGenerator(name = "card_sequence", sequenceName = " card_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "card_sequence" )
-    @Column(name = "id", updatable = false)
-    private Long id;
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", columnDefinition = "uuid")
+    private UUID id = UUID.randomUUID();
     @Column(name = "email", nullable = false, columnDefinition = "TEXT")
     private String email;
     @Column(name = "name", nullable = false, columnDefinition = "TEXT")
@@ -30,6 +33,7 @@ public class Card {
         this.name = name;
         this.message = message;
         this.is_winner = is_winner;
+        is_opened = false;
 
     }
 
@@ -38,7 +42,7 @@ public class Card {
     }
 
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -64,7 +68,7 @@ public class Card {
         return is_opened;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -90,9 +94,13 @@ public class Card {
 
     @Override
     public String toString() {
-        return "UserFields{" +
+        return "Card{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", message='" + message + '\'' +
+                ", is_winner=" + is_winner +
+                ", is_opened=" + is_opened +
                 '}';
     }
 }

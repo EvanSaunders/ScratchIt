@@ -15,6 +15,20 @@ public class CardSetInfo {
         this.numToWin = numToWin;
     }
 
+    public Card[] createCards(){
+        Card[] cardArray = new Card[numToSend];
+        for(int i = 0; i< numToWin;i++){
+            Card winnerCard = new Card(email, name, messageT, true);
+            cardArray[i]=winnerCard;
+        }
+        for(int i = numToWin; i< numToSend;i++){
+            Card loserCard = new Card(email, name, messageT, false);
+            cardArray[i]=loserCard;
+        }
+        return cardArray;
+    }
+
+
 
 
     public String getName() {
@@ -61,5 +75,14 @@ public class CardSetInfo {
 
     }
 
-
+    @Override
+    public String toString() {
+        return "CardSetInfo{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", messageT='" + messageT + '\'' +
+                ", numToSend=" + numToSend +
+                ", numToWin=" + numToWin +
+                '}';
+    }
 }

@@ -7,7 +7,7 @@ export default function UserFields() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [messageT, setMessage] = useState("");
-    const [numToSend, setNumToSend] = useState(0);
+    const [numToSend, setNumToSend] = useState(1);
     const [numToWin, setNumToWin] = useState(0);
 
     const handleClick = (e) => {
@@ -19,7 +19,7 @@ export default function UserFields() {
             numToSend : parseInt(numToSend, 10),
             numToWin : parseInt(numToWin, 10) };
 
-        fetch("http://localhost:8080/cardSetInfo", {
+        fetch("http://localhost:8080/createCards", {
             method: "POST",
             headers: { "Content-Type": "application/json",
                 "Accept": "application/json"},
