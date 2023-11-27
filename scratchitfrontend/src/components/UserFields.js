@@ -24,7 +24,7 @@ export default function UserFields() {
             numToSend : parseInt(numToSend, 10),
             numToWin : parseInt(numToWin, 10) };
 
-        fetch("http://localhost:8080/createCards", {
+        fetch("http://localhost:8080/create-cards", {
             method: "POST",
             headers: { "Content-Type": "application/json",
                 "Accept": "application/json"},

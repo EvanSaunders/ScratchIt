@@ -1,6 +1,7 @@
 import Appbar from "./Appbar";
 import UserFields from "./UserFields";
 import {Link, useNavigate } from 'react-router-dom';
+import Card from "./Card";
 
 
 function Home() {
@@ -8,8 +9,10 @@ function Home() {
     return (
         <div className="Home">
             <Appbar/>
-            <button onClick={() => navigate("/createCards")}>Create Cards</button>
+            <button onClick={() => navigate("/create-cards")}>Create Cards</button>
+
         </div>
+
 
     );
 }

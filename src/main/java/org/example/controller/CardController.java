@@ -21,7 +21,7 @@ public class CardController {
 
     private CardService cardService;
 
-    @PostMapping("/createCards")
+    @PostMapping("/create-cards")
     public String add(@RequestBody CardSetInfo cardSetInfo){
         Card[] cardArray = cardSetInfo.createCards();
         for (Card card : cardArray) {
@@ -31,13 +31,13 @@ public class CardController {
         return "UserFields Added Succesfully";
     }
 
-    @GetMapping("/viewSentCards")
+    @GetMapping("/view-sentCards")
     public List<Card> viewSentCards(@RequestParam String email){
         return cardService.findByEmail(email);
     }
 
 
-    @GetMapping("/viewCard")
+    @GetMapping("/view-card/{primaryKey}")
     public Optional<Card> viewCard(@PathVariable UUID primaryKey){
         return cardService.findById(primaryKey);
     }
