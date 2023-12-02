@@ -2,6 +2,8 @@ import Appbar from "./Appbar";
 import UserFields from "./UserFields";
 import {Link, useNavigate } from 'react-router-dom';
 import Card from "./Card";
+import Scratchcardpage from "./Scratchcardpage";
+
 
 
 function Home() {

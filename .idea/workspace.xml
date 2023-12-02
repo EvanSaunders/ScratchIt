@@ -67,6 +67,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\evans\OneDrive\Documents\GitHub\ScratchIt\scratchitfrontend\src\assets" />
+      <recent name="C:\Users\evans\OneDrive\Documents\GitHub\ScratchIt\scratchitfrontend\src\components" />
       <recent name="C:\Users\evans\OneDrive\Documents\GitHub\ScratchIt\src\main\resources" />
       <recent name="C:\Users\evans\OneDrive\Documents\GitHub\ScratchIt\src\main\resources\templates" />
       <recent name="C:\Users\evans\OneDrive\Documents\GitHub\ScratchIt" />
@@ -133,7 +135,8 @@
       <workItem from="1699912004227" duration="11670000" />
       <workItem from="1700181473053" duration="5827000" />
       <workItem from="1700258188730" duration="4030000" />
-      <workItem from="1701120721440" duration="5953000" />
+      <workItem from="1701120721440" duration="6030000" />
+      <workItem from="1701546023422" duration="5007000" />
     </task>
     <servers />
   </component>
@@ -159,7 +162,8 @@
           <option name="timeStamp" value="5" />
         </breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/scratchitfrontend/src/components/UserFields.js</url>
+          <url>file://$PROJECT_DIR$/scratchitfrontend/src/components/Home.js</url>
+          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

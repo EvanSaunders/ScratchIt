@@ -4,6 +4,7 @@ import org.example.Card;
 import org.example.CardSetInfo;
 import org.example.service.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 public class CardController {
     @Autowired
     public CardController(CardService cardService) {
@@ -29,6 +30,21 @@ public class CardController {
         }
 
         return "UserFields Added Succesfully";
+    }
+
+    @PostMapping("/updateIsOpened/{id}")
+    public ResponseEntity<String> updateIsOpened(@PathVariable UUID id) {
+        // Find the entity by ID
+        Card entity = cardService.findById(id)
+                .orElseThrow();
+
+        // Update the isOpened field (assuming isOpened is a boolean field)
+        entity.setIs_opened(true);
+
+        // Save the updated entity
+        cardService.saveCard(entity);
+
+        return ResponseEntity.ok("Entity with id " + id + " updated successfully.");
     }
 
     @GetMapping("/view-sentCards")

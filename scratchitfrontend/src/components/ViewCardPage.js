@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 function ViewCardPage() {
     const { primaryKey } = useParams();
 
+    const [id, setId] = useState("");
     const [name, setName] = useState("");
     const [message, setMessage] = useState("");
     const [isOpened, setIsOpened] = useState(false);
@@ -20,6 +21,7 @@ function ViewCardPage() {
                     throw new Error('Network response was not ok');
                 }
                 const result = await response.json();
+                setId(result.id);
                 setName(result.name);
                 setMessage(result.message);
                 setIsOpened(result.is_opened);
@@ -34,8 +36,8 @@ function ViewCardPage() {
 
     return (
         <div className="ViewCardPage">
-            <p>{message}</p>
-            <Card />
+
+            <Card id = {id} name={name} message={message} isOpened={isOpened} isWinner ={isWinner}/>
         </div>
     );
 }

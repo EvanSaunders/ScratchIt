@@ -4,8 +4,9 @@ import Box from "@mui/material/Box";
 import {ThemeProvider} from "@mui/material";
 import Home from "./Home";
 import UserFields from "./UserFields";
+import Scratchcardpage from "./Scratchcardpage";
 
-function Card() {
+function Card(props) {
     const navigate = useNavigate();
     return (
         <ThemeProvider
@@ -30,8 +31,9 @@ function Card() {
                     bgcolor: 'primary.main'
                 }}
             >
-                <h1>Soa sent you a card</h1>
-                <h2> Thanks for purchasing, see if you won</h2>
+                <h1>{props.name} sent you a card</h1>
+                <h2> {props.message}</h2>
+                <Scratchcardpage id = {props.id}/>
 
             </Box>
         </ThemeProvider>
