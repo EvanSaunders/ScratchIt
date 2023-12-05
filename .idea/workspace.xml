@@ -137,6 +137,8 @@
       <workItem from="1700258188730" duration="4030000" />
       <workItem from="1701120721440" duration="6030000" />
       <workItem from="1701546023422" duration="5007000" />
+      <workItem from="1701709977818" duration="66000" />
+      <workItem from="1701732954289" duration="2642000" />
     </task>
     <servers />
   </component>
@@ -163,7 +165,6 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/scratchitfrontend/src/components/Home.js</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

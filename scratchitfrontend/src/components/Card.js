@@ -5,6 +5,7 @@ import {ThemeProvider} from "@mui/material";
 import Home from "./Home";
 import UserFields from "./UserFields";
 import Scratchcardpage from "./Scratchcardpage";
+import Scratchcard from "./Scratchcardpage";
 
 function Card(props) {
     const navigate = useNavigate();
@@ -33,7 +34,7 @@ function Card(props) {
             >
                 <h1>{props.name} sent you a card</h1>
                 <h2> {props.message}</h2>
-                <Scratchcardpage id = {props.id}/>
+                <Scratchcard id = {props.id} isOpened = {props.isOpened} isWinner = {props.isWinner}/>
 
             </Box>
         </ThemeProvider>
