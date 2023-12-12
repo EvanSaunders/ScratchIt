@@ -12,7 +12,7 @@ import java.util.UUID;
 @Service
 public class CardServiceImp implements CardService {
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
-    @Autowired
+
     private CardRepository cardRepository ;
 
     @Autowired
