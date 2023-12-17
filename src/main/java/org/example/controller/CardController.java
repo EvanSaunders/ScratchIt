@@ -24,6 +24,7 @@ public class CardController {
 
     @PostMapping("/create-cards")
     public String add(@RequestBody CardSetInfo cardSetInfo){
+        System.out.println("Received request with CardSetInfo: " + cardSetInfo);
         Card[] cardArray = cardSetInfo.createCards();
         for (Card card : cardArray) {
             cardService.saveCard(card);

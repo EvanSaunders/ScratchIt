@@ -16,9 +16,5 @@ public class HomePageController {
         return "createCardPage";
     }
 
-    @GetMapping("/secured")
-    public String secured(){
-        return "hello secured";
-    }
-    //Do /error
+
 }
