@@ -16,8 +16,8 @@
         <option value="spring-beans.schema" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -61,6 +61,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.3.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -154,7 +155,8 @@
       <workItem from="1702340550531" duration="1086000" />
       <workItem from="1702498371899" duration="9662000" />
       <workItem from="1702834076689" duration="511000" />
-      <workItem from="1702834609147" duration="2878000" />
+      <workItem from="1702834609147" duration="3022000" />
+      <workItem from="1703011883271" duration="5230000" />
     </task>
     <servers />
   </component>

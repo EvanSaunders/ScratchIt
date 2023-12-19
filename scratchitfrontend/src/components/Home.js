@@ -3,8 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import Appbar from './Appbar';
 
 import { gapi } from 'gapi-script';
+import app from "../App";
 
-const clientId = "282650218440-6vb2j84rru32vf15iuli4bddqdpkq61l.apps.googleusercontent.com";
+
+
 
 function Home() {
     const navigate = useNavigate();
@@ -22,7 +24,8 @@ function Home() {
 
             <Appbar />
             <div id="signInDiv"></div>
-
+            {/* Do logout*/}
+            {/*<button onClick={(e) =>handleSignOut(e)}>Sign Out</button>*/}
             <button onClick={handleNavigation}>Navigate to Create Cards</button>
 
         </div>
