@@ -1,25 +1,28 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Appbar from "./Appbar";
 import UserFields from "./UserFields";
 import { useAuth } from './AuthContext';
+import {useNavigate} from "react-router-dom";
 
-function AuthRequiredComponent() {
 
-
-    return (
-        <div>
-
-            <UserFields/>
-        </div>
-    );
-}
 
 function CreatePage() {
+    const navigate = useNavigate();
+    useEffect(() => {
+
+        const jwtToken = localStorage.getItem('jwtToken');
+        if(!jwtToken){
+            navigate('/login');
+        }
+
+
+    }, []);
+
     return (
         <div className="App">
             <Appbar/>
+            <UserFields/>
 
-            <AuthRequiredComponent />
         </div>
     );
 }

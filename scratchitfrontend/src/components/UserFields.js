@@ -1,25 +1,34 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import TextField from '@mui/material/TextField';
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
+import { jwtDecode } from "jwt-decode";
 
 export default function UserFields() {
-    const [name, setName] = useState("");
 
-    const [email, setEmail] = useState("");
-    const [emailError, setEmailError] = useState('');
 
-    const [messageT, setMessage] = useState("");
-
+    const [name, setName] = useState('');
+    const [messageT, setMessage] = useState('');
     const [numToSend, setNumToSend] = useState(1);
-
     const [numToWin, setNumToWin] = useState(0);
 
+    useEffect(() => {
+        const jwtToken = localStorage.getItem('jwtToken');
+
+        if (jwtToken) {
+            try {
+                const decodedToken = jwtDecode(jwtToken);
+                setName(`${decodedToken.given_name} ${decodedToken.family_name}`);
+            } catch (error) {
+                console.error('Error decoding token:', error);
+            }
+        }
+    }, []);
     const handleClick = (e) => {
         e.preventDefault();
         const cardSetInfo = {
             name,
-            email,
+            email: jwtDecode(localStorage.getItem('jwtToken')).email,
             messageT,
             numToSend : parseInt(numToSend, 10),
             numToWin : parseInt(numToWin, 10) };
@@ -46,16 +55,7 @@ export default function UserFields() {
             });
     };
 
-    const handleEmailChange = (event) => {
-        const enteredEmail = event.target.value;
-        setEmail(enteredEmail);
 
-        // Basic email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const isValidEmail = emailRegex.test(enteredEmail);
-
-        setEmailError(isValidEmail ? '' : 'Please enter a valid email address');
-    };
 
 
 
@@ -70,17 +70,7 @@ export default function UserFields() {
                     onChange={(e) => setName(e.target.value)}
                     style={{ marginBottom: 16 }}
                 />
-                <TextField
-                    id="email-field"
-                    label="Email"
-                    variant="outlined"
-                    value={email}
-                    onChange={handleEmailChange}
-                    error={!!emailError}
-                    helperText={emailError}
 
-                    style={{ marginBottom: 16 }}
-                />
 
                 <TextField
                     id="message-field"
