@@ -6,7 +6,7 @@ import { jwtDecode } from "jwt-decode";
 
 export default function UserFields() {
 
-
+    const [sub, setSub] = useState('');
     const [name, setName] = useState('');
     const [messageT, setMessage] = useState('');
     const [numToSend, setNumToSend] = useState(1);
@@ -15,10 +15,12 @@ export default function UserFields() {
     useEffect(() => {
         const jwtToken = localStorage.getItem('jwtToken');
 
+
         if (jwtToken) {
             try {
                 const decodedToken = jwtDecode(jwtToken);
                 setName(`${decodedToken.given_name} ${decodedToken.family_name}`);
+                setSub(decodedToken.sub);
             } catch (error) {
                 console.error('Error decoding token:', error);
             }
@@ -26,12 +28,22 @@ export default function UserFields() {
     }, []);
     const handleClick = (e) => {
         e.preventDefault();
+        const jwtToken = localStorage.getItem('jwtToken');
+        const decodedToken = jwtDecode(jwtToken);
+        const currentSub = sub; // Store the current value of sub
+
+        console.log('Current sub value:', currentSub); // Log the current value of sub
+
         const cardSetInfo = {
+            sub: currentSub, // Use the stored value of sub
             name,
-            email: jwtDecode(localStorage.getItem('jwtToken')).email,
+            email: decodedToken.email, // Use the decodedToken directly for email
             messageT,
-            numToSend : parseInt(numToSend, 10),
-            numToWin : parseInt(numToWin, 10) };
+            numToSend: parseInt(numToSend, 10),
+            numToWin: parseInt(numToWin, 10),
+        };
+
+
 
         fetch("http://localhost:8080/create-cards", {
             method: "POST",

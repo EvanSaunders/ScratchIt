@@ -14,6 +14,9 @@ public class Card {
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "id", columnDefinition = "uuid")
     private UUID id = UUID.randomUUID();
+
+    @Column(name = "sub", nullable = false, columnDefinition = "TEXT")
+    private String sub;
     @Column(name = "email", nullable = false, columnDefinition = "TEXT")
     private String email;
     @Column(name = "name", nullable = false, columnDefinition = "TEXT")
@@ -27,8 +30,9 @@ public class Card {
     private Boolean is_opened;
 
 
-    public Card(String email, String name, String message, Boolean is_winner) {
+    public Card(String sub, String email, String name, String message, Boolean is_winner) {
 
+        this.sub = sub;
         this.email = email;
         this.name = name;
         this.message = message;
@@ -47,7 +51,9 @@ public class Card {
     }
 
 
-
+    public String getSub() {
+        return sub;
+    }
     public String getEmail() {
         return email;
     }
@@ -72,6 +78,9 @@ public class Card {
         this.id = id;
     }
 
+    public void setSub(String sub) {
+        this.sub = sub;
+    }
     public void setEmail(String email) {
         this.email = email;
     }
@@ -96,6 +105,7 @@ public class Card {
     public String toString() {
         return "Card{" +
                 "id=" + id +
+                ", sub='" + sub + '\'' +
                 ", email='" + email + '\'' +
                 ", name='" + name + '\'' +
                 ", message='" + message + '\'' +

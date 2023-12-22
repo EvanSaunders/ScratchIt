@@ -1,13 +1,15 @@
 package org.example;
 
 public class CardSetInfo {
+    String sub;
     String name;
     String email;
     String messageT;
     int numToSend;
     int numToWin;
 
-    public CardSetInfo(String name, String email, String message, int numToSend, int numToWin) {
+    public CardSetInfo(String sub, String name, String email, String message, int numToSend, int numToWin) {
+        this.sub = sub;
         this.name = name;
         this.email = email;
         this.messageT = message;
@@ -18,11 +20,11 @@ public class CardSetInfo {
     public Card[] createCards(){
         Card[] cardArray = new Card[numToSend];
         for(int i = 0; i< numToWin;i++){
-            Card winnerCard = new Card(email, name, messageT, true);
+            Card winnerCard = new Card(sub,email, name, messageT, true);
             cardArray[i]=winnerCard;
         }
         for(int i = numToWin; i< numToSend;i++){
-            Card loserCard = new Card(email, name, messageT, false);
+            Card loserCard = new Card(sub, email, name, messageT, false);
             cardArray[i]=loserCard;
         }
         return cardArray;
@@ -30,7 +32,9 @@ public class CardSetInfo {
 
 
 
-
+    public String getSub() {
+        return sub;
+    }
     public String getName() {
         return name;
     }
@@ -54,7 +58,9 @@ public class CardSetInfo {
     public void setName(String name) {
         this.name = name;
     }
-
+    public void setSub(String sub) {
+        this.sub = sub;
+    }
     public void setEmail(String email) {
         this.email = email;
     }
@@ -78,6 +84,7 @@ public class CardSetInfo {
     @Override
     public String toString() {
         return "CardSetInfo{" +
+                "sub ='" + sub + '\'' +
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", messageT='" + messageT + '\'' +

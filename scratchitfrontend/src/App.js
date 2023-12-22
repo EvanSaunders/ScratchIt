@@ -11,6 +11,7 @@ import {useEffect, useState} from "react";
 import {gapi} from "gapi-script";
 import { jwtDecode } from "jwt-decode";
 import Login from "./components/Login";
+import ViewSentCards from "./components/ViewSentCards";
 
 
 
@@ -34,6 +35,7 @@ const App = () => {
                 <Route path="/create-cards" element={<CreatePage />}></Route>
                 <Route path="/view-card" element={<ViewCardPage />}></Route>
                 <Route path="/view-card/:primaryKey" element={<ViewCardPage />} />
+                <Route path="/view-sent-cards" element={<ViewSentCards/>}/>
 
             </Routes>
         </BrowserRouter>

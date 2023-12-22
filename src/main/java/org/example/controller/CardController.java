@@ -48,9 +48,9 @@ public class CardController {
         return ResponseEntity.ok("Entity with id " + id + " updated successfully.");
     }
 
-    @GetMapping("/view-sentCards")
-    public List<Card> viewSentCards(@RequestParam String email){
-        return cardService.findByEmail(email);
+    @GetMapping("/view-sent-cards/{sub}")
+    public List<Card> viewSentCards(@PathVariable String sub){
+        return cardService.findByEmail(sub);
     }
 
 
