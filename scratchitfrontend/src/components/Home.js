@@ -17,16 +17,20 @@ function Home() {
         // Correct way to navigate without full page reload
         navigate('/create-cards');
     };
+    const handleNavigation2 = () => {
+        // Correct way to navigate without full page reload
+        navigate('/view-sent-cards');
+    };
 
     return (
 
         <div className="Home">
 
-            <Appbar />
+            <Appbar/>
             <div id="signInDiv"></div>
-            {/* Do logout*/}
-            {/*<button onClick={(e) =>handleSignOut(e)}>Sign Out</button>*/}
+
             <button onClick={handleNavigation}>Navigate to Create Cards</button>
+            <button onClick={handleNavigation2}>Navigate to View Cards</button>
 
         </div>
     );

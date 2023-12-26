@@ -26,6 +26,10 @@ const Appbar = () => {
         }
     };
 
+    const handleNavigationHome = () => {
+        navigate('/');
+    };
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -39,10 +43,10 @@ const Appbar = () => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        News
-                    </Typography>
-                    <Button color="inherit" onClick={handleNavigation}>
+                    <Button onClick={handleNavigationHome} variant="h6" component="div" >
+                        Scratchit!
+                    </Button>
+                    <Button color="inherit" onClick={handleNavigation} style={{ marginLeft: 'auto' }}>
                         {jwtToken ? 'Logout' : 'Login'}
                     </Button>
                 </Toolbar>

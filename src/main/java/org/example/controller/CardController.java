@@ -50,7 +50,7 @@ public class CardController {
 
     @GetMapping("/view-sent-cards/{sub}")
     public List<Card> viewSentCards(@PathVariable String sub){
-        return cardService.findByEmail(sub);
+        return cardService.findBySub(sub);
     }
 
 

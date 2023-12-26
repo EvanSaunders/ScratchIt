@@ -14,5 +14,5 @@ public interface CardRepository extends JpaRepository<Card, Long> {
 
     Optional<Card> findById(UUID primaryKey);
 
-    List<Card> findByEmail(String email);
+    List<Card> findBySub(String sub);
 }

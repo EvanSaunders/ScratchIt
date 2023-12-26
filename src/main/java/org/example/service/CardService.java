@@ -14,7 +14,7 @@ public interface CardService {
 
     public Optional<Card> findById(UUID primaryKey);
 
-    public List<Card> findByEmail(String email);
+    public List<Card> findBySub(String sub);
 
 
 }

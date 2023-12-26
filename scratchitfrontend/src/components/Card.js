@@ -6,10 +6,19 @@ import Home from "./Home";
 import UserFields from "./UserFields";
 import Scratchcardpage from "./Scratchcardpage";
 import Scratchcard from "./Scratchcardpage";
+import {jwtDecode} from "jwt-decode";
+
+
+
+
 
 function Card(props) {
     const navigate = useNavigate();
+
+
+
     return (
+
         <ThemeProvider
             theme={{
                 palette: {
@@ -32,9 +41,11 @@ function Card(props) {
                     bgcolor: 'primary.main'
                 }}
             >
+
                 <h1>{props.name} sent you a card</h1>
+
                 <h2> {props.message}</h2>
-                <Scratchcard id = {props.id} isOpened = {props.isOpened} isWinner = {props.isWinner}/>
+                <Scratchcard id = {props.id} isOpened = {props.isOpened} isWinner = {props.isWinner} isDisplayOnly = {props.isDisplayOnly}/>
 
             </Box>
         </ThemeProvider>
