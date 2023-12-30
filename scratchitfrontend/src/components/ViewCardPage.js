@@ -51,7 +51,6 @@ function ViewCardPage() {
     useEffect(() => {
         // Check the condition after updating sub
         setIsDisplayOnly(jwtSub === sub);
-        console.log("is d " + isDisplayOnly);
     }, [jwtSub, sub]);
 
     return (

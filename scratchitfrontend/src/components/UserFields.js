@@ -8,7 +8,7 @@ export default function UserFields() {
 
     const [sub, setSub] = useState('');
     const [name, setName] = useState('');
-    const [messageT, setMessage] = useState('');
+    const [message, setMessage] = useState('');
     const [numToSend, setNumToSend] = useState(1);
     const [numToWin, setNumToWin] = useState(0);
 
@@ -38,7 +38,7 @@ export default function UserFields() {
             sub: currentSub, // Use the stored value of sub
             name,
             email: decodedToken.email, // Use the decodedToken directly for email
-            messageT,
+            message,
             numToSend: parseInt(numToSend, 10),
             numToWin: parseInt(numToWin, 10),
         };
@@ -62,7 +62,7 @@ export default function UserFields() {
             })
             .catch(error => {
 
-                console.log("Card Set Info:", JSON.stringify(cardSetInfo));
+
                 console.error("Error submitting card:", error);
             });
     };
@@ -86,9 +86,9 @@ export default function UserFields() {
 
                 <TextField
                     id="message-field"
-                    label="MessageT"
+                    label="Message"
                     variant="outlined"
-                    value={messageT}
+                    value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     style={{ marginBottom: 16 }}
                 />

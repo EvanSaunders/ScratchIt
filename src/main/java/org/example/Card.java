@@ -66,7 +66,7 @@ public class Card {
         return message;
     }
 
-    public Boolean getWinner() {
+    public Boolean getIs_winner() {
         return is_winner;
     }
 
@@ -97,8 +97,8 @@ public class Card {
         this.is_opened = is_opened;
     }
 
-    public void setWinner(Boolean winner) {
-        is_winner = winner;
+    public void setIs_winner(Boolean is_winner) {
+        is_winner = is_winner;
     }
 
     @Override

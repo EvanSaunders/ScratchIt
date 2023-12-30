@@ -4,7 +4,7 @@ public class CardSetInfo {
     String sub;
     String name;
     String email;
-    String messageT;
+    String message;
     int numToSend;
     int numToWin;
 
@@ -12,7 +12,7 @@ public class CardSetInfo {
         this.sub = sub;
         this.name = name;
         this.email = email;
-        this.messageT = message;
+        this.message = message;
         this.numToSend = numToSend;
         this.numToWin = numToWin;
     }
@@ -20,11 +20,11 @@ public class CardSetInfo {
     public Card[] createCards(){
         Card[] cardArray = new Card[numToSend];
         for(int i = 0; i< numToWin;i++){
-            Card winnerCard = new Card(sub,email, name, messageT, true);
+            Card winnerCard = new Card(sub,email, name, message, true);
             cardArray[i]=winnerCard;
         }
         for(int i = numToWin; i< numToSend;i++){
-            Card loserCard = new Card(sub, email, name, messageT, false);
+            Card loserCard = new Card(sub, email, name, message, false);
             cardArray[i]=loserCard;
         }
         return cardArray;
@@ -44,7 +44,7 @@ public class CardSetInfo {
     }
 
     public String getMessage() {
-        return messageT;
+        return message;
     }
 
     public int getNumToSend() {
@@ -65,8 +65,8 @@ public class CardSetInfo {
         this.email = email;
     }
 
-    public void setMessageT(String messageT) {
-        this.messageT = messageT;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public void setNumToSend(int numToSend) {
@@ -87,7 +87,7 @@ public class CardSetInfo {
                 "sub ='" + sub + '\'' +
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", messageT='" + messageT + '\'' +
+                ", message='" + message + '\'' +
                 ", numToSend=" + numToSend +
                 ", numToWin=" + numToWin +
                 '}';
