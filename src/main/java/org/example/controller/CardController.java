@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -41,6 +42,21 @@ public class CardController {
 
         // Update the isOpened field (assuming isOpened is a boolean field)
         entity.setIs_opened(true);
+
+        // Save the updated entity
+        cardService.saveCard(entity);
+
+        return ResponseEntity.ok("Entity with id " + id + " updated successfully.");
+    }
+
+    @PostMapping("/update-note/{id}")
+    public ResponseEntity<String> updateNote(@PathVariable UUID id, @RequestBody Map<String, String> requestBody) {
+        // Find the entity by ID
+        Card entity = cardService.findById(id)
+                .orElseThrow();
+
+        // Update the isOpened field (assuming isOpened is a boolean field)
+        entity.setNote(requestBody.get("note"));
 
         // Save the updated entity
         cardService.saveCard(entity);

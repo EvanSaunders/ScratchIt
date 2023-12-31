@@ -13,17 +13,6 @@ public class Main {
     {
         SpringApplication.run(Main.class, args);
     }
-  //  @Bean
-  //  CommandLineRunner commandLineRunner(CardRepository cardRepository){
-      //  return args ->{
-       //     UserFields examp = new UserFields(
-       //             "ex@gmail.com",
-       //             "John Doe",
-       //             "Have fun",
-       //             true);
-      //      cardRepository.save(examp);
-     //   };
-    //}
 
 }
 

@@ -101,14 +101,14 @@ export default function UserFields() {
                     id="numToSend"
                     name="numToSend"
                     min="1"
-                    max="10"
+                    max="5"
                     value={numToSend}
                     onChange={(e) => {
                         const newValue = e.target.value;
                         if (/^[0-9]*$/.test(newValue) && newValue >= 1 && newValue <= 10) {
                             setNumToSend(newValue);
                             // Clear numToWin if it's greater than the new numToSend
-                            setNumToWin(numToWin > newValue ? 0 : numToWin);
+                            //setNumToWin(numToWin > newValue ? 0 : numToWin);
                         }
                     }}
                 />

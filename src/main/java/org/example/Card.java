@@ -29,6 +29,9 @@ public class Card {
     @Column(name = "is_opened", nullable = false, columnDefinition = "BOOLEAN")
     private Boolean is_opened;
 
+    @Column(name = "note", nullable = true, columnDefinition = "TEXT")
+    private String note;
+
 
     public Card(String sub, String email, String name, String message, Boolean is_winner) {
 
@@ -38,6 +41,7 @@ public class Card {
         this.message = message;
         this.is_winner = is_winner;
         is_opened = false;
+        note = "";
 
     }
 
@@ -74,6 +78,10 @@ public class Card {
         return is_opened;
     }
 
+    public String getNote() {
+        return note;
+    }
+
     public void setId(UUID id) {
         this.id = id;
     }
@@ -101,6 +109,10 @@ public class Card {
         is_winner = is_winner;
     }
 
+    public void setNote(String note) {
+        this.note = note;
+    }
+
     @Override
     public String toString() {
         return "Card{" +
@@ -111,6 +123,7 @@ public class Card {
                 ", message='" + message + '\'' +
                 ", is_winner=" + is_winner +
                 ", is_opened=" + is_opened +
+                ", note='" + note + '\'' +
                 '}';
     }
 }
