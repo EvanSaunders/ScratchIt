@@ -72,6 +72,36 @@ const ViewSentCards = () => {
         }
     };
 
+    const deleteCard = async (id) => {
+        // Display a confirmation dialog
+        const isConfirmed = window.confirm('Are you sure you want to delete this card?');
+
+        // Check if the user confirmed
+        if (isConfirmed) {
+            try {
+                const response = await fetch(`http://localhost:8080/delete-card/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                if (response.ok) {
+                    // Update local state to remove the deleted card
+                    setSentCards((prevCards) => prevCards.filter((card) => card.id !== id));
+
+                    const data = await response.json();
+                    console.log(data); // Log the success message
+                } else {
+                    console.error('Failed to delete card');
+                }
+            } catch (error) {
+                console.error('Error during the delete card request:', error);
+            }
+        }
+    };
+
+
     return (
         <div>
             <Appbar/>
@@ -116,7 +146,10 @@ const ViewSentCards = () => {
                         />
                     </label>
                     <Button variant="contained" onClick={() => updateNote(card.id, note)}>
-                        Submit
+                        Save Note
+                    </Button>
+                    <Button variant="contained" onClick={() => deleteCard(card.id)}>
+                        Delete
                     </Button>
                 </div>
             ))}

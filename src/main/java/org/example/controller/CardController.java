@@ -64,6 +64,12 @@ public class CardController {
         return ResponseEntity.ok("Entity with id " + id + " updated successfully.");
     }
 
+    @DeleteMapping("delete-card/{id}")
+    public ResponseEntity<String> deleteCard(@PathVariable UUID id) {
+        cardService.deleteCard(id);
+        return ResponseEntity.ok("Entity with id " + id + " deleted successfully.");
+    }
+
     @GetMapping("/view-sent-cards/{sub}")
     public List<Card> viewSentCards(@PathVariable String sub){
         return cardService.findBySub(sub);

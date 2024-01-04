@@ -1,5 +1,6 @@
 package org.example.service;
 
+import jakarta.transaction.Transactional;
 import org.example.Card;
 import org.example.repository.CardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,11 @@ public class CardServiceImp implements CardService {
     @Override
     public Card saveCard(Card card){
         return cardRepository.save(card);
+    }
+    @Override
+    @Transactional
+    public void deleteCard(UUID id){
+        cardRepository.deleteById(id);
     }
 
     @Override

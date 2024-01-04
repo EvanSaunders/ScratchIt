@@ -10,6 +10,10 @@ import java.util.UUID;
 @Service
 public interface CardService {
     public Card saveCard(Card card);
+
+    public void deleteCard(UUID id);
+
+
     public List<Card> getAllCards();
 
     public Optional<Card> findById(UUID primaryKey);

@@ -32,7 +32,7 @@ const Appbar = () => {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+            <AppBar position="static" className="bg-orange-500">
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -43,7 +43,7 @@ const Appbar = () => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Button onClick={handleNavigationHome} variant="h6" component="div" >
+                    <Button onClick={handleNavigationHome} variant="h6" component="div">
                         Scratchit!
                     </Button>
                     <Button color="inherit" onClick={handleNavigation} style={{ marginLeft: 'auto' }}>

@@ -27,6 +27,7 @@ export default function UserFields() {
         }
     }, []);
     const handleClick = (e) => {
+
         e.preventDefault();
         const jwtToken = localStorage.getItem('jwtToken');
         const decodedToken = jwtDecode(jwtToken);
