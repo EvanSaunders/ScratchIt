@@ -27,7 +27,7 @@ function Home() {
         <div>
 
             <Appbar/>
-            <div className="flex flex-col items-center  h-screen mt-10">
+            <div className="flex flex-col items-center  h-screen mt10">
             <div >
             <button onClick={handleNavigation} className="bg-orange-500 hover:bg-orange-400 text-white font-bold py-2 px-4 border-b-4 border-orange-700 hover:border-orange-500 rounded mb-8">Navigate to Create Cards</button>
             </div>

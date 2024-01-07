@@ -31,6 +31,7 @@ const Login = () => {
                 {theme: "outline", size:"large"}
             )
             google.accounts.id.prompt();
+
         }
 
 

@@ -54,13 +54,14 @@ function ViewCardPage() {
     }, [jwtSub, sub]);
 
     return (
-        <div className="ViewCardPage">
+        <div >
             <Appbar />
             {isDisplayOnly && (
-                <p>
+                <p className="flex flex-col items-center pt-4">
                     This is a mockup, you made this card. You can scratch it, but it won't open.
                 </p>
             )}
+            <div className="flex flex-col items-center pt-4">
             <Card
                 id={id}
                 name={name}
@@ -69,6 +70,7 @@ function ViewCardPage() {
                 isWinner={isWinner}
                 isDisplayOnly={isDisplayOnly}
             />
+        </div>
         </div>
     );
 }

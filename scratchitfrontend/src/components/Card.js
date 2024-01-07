@@ -19,36 +19,13 @@ function Card(props) {
 
     return (
 
-        <ThemeProvider
-            theme={{
-                palette: {
-                    primary: {
-                        main: '#eeeeee',
-                        dark: '#0066CC',
-                    },
-                },
-            }}
-        >
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'flex-start',
-                    alignItems: 'center',
-                    width: 500,
-                    height: 500,
-                    borderRadius: 8,
-                    bgcolor: 'primary.main'
-                }}
-            >
+        <div className="flex flex-col items-center justify-start w-[500px]  rounded-3xl bg-gray-100 text-wrap break-normal ">
+            <h1 className="block py-2 px-3 font-medium text-2xl">{props.name} sent you a card</h1>
+            <h1 className="block py-2 px-3 font-medium text-l ">{props.message}</h1>
+            <Scratchcard id={props.id} isOpened={props.isOpened} isWinner={props.isWinner}
+                         isDisplayOnly={props.isDisplayOnly}/>
+        </div>
 
-                <h1>{props.name} sent you a card</h1>
-
-                <h2> {props.message}</h2>
-                <Scratchcard id = {props.id} isOpened = {props.isOpened} isWinner = {props.isWinner} isDisplayOnly = {props.isDisplayOnly}/>
-
-            </Box>
-        </ThemeProvider>
 
     );
 }

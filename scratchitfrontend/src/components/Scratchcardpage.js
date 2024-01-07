@@ -11,7 +11,7 @@ import cardImage from "../assets/scratchcircle.jpg";
         width: 250,
         height: 250,
         image: cardImage,
-        finishPercent: 60,
+        finishPercent: 50,
 
 
 
