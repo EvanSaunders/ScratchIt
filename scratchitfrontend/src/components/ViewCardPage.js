@@ -57,9 +57,14 @@ function ViewCardPage() {
         <div >
             <Appbar />
             {isDisplayOnly && (
-                <p className="flex flex-col items-center pt-4">
-                    This is a mockup, you made this card. You can scratch it, but it won't open.
+                <div className="flex flex-col items-center pt-4 py-2 px-3 font-medium">
+                <p  className="text-2xl">
+                    PREVIEW CARD:
                 </p>
+                    <p className="text-xl">
+                        You made this card. Scratching it will not open it
+                    </p>
+                </div>
             )}
             <div className="flex flex-col items-center pt-4">
             <Card

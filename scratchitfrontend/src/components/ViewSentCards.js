@@ -3,6 +3,8 @@ import { jwtDecode } from 'jwt-decode';
 import Appbar from './Appbar';
 import { useNavigate } from 'react-router-dom';
 import Button from "@mui/material/Button";
+import Scratchcard from "./Scratchcardpage";
+import Card from "./Card";
 
 const ViewSentCards = () => {
     const [sentCards, setSentCards] = useState([]);
@@ -121,12 +123,15 @@ const ViewSentCards = () => {
                     <p>
                         <strong>Send this Link:</strong> http://localhost:3000/view-card/{card.id}
                     </p>
-                    <p>
-                        <strong>Name:</strong> {card.name}
-                    </p>
-                    <p>
-                        <strong>Message:</strong> {card.message}
-                    </p>
+                    <Card
+                        id={card.id}
+                        name={card.name}
+                        message={card.message}
+                        isOpened={card.is_opened}
+                        isWinner={card.is_winner}
+                        isDisplayOnly={true}
+                    />
+
                     <p>
                         <strong>Opened?:</strong> {card.is_opened ? 'Opened' : 'Not Opened'}
                     </p>
@@ -139,7 +144,7 @@ const ViewSentCards = () => {
                         Personal Note:
                         <textarea
                             name="postContent"
-                            defaultValue= {card.note}
+                            defaultValue={card.note}
                             onChange={handleTextareaChange}
                             rows={4}
                             cols={40}

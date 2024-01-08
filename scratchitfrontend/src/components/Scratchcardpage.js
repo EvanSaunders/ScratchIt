@@ -52,7 +52,7 @@ import cardImage from "../assets/scratchcircle.jpg";
 
 const ScratchCardComponent = (props) => (
 
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "30vh" }}>
+    <div style={{ display: "flex", justifyContent: "center", height: "30vh" }}>
         {props.isOpened ? (
             <div>
                 {props.isWinner ? (
