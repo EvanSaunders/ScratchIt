@@ -5,14 +5,17 @@ public class CardSetInfo {
     String name;
     String email;
     String message;
+
+    String prize;
     int numToSend;
     int numToWin;
 
-    public CardSetInfo(String sub, String name, String email, String message, int numToSend, int numToWin) {
+    public CardSetInfo(String sub, String name, String email, String message, String prize, int numToSend, int numToWin) {
         this.sub = sub;
         this.name = name;
         this.email = email;
         this.message = message;
+        this.prize = prize;
         this.numToSend = numToSend;
         this.numToWin = numToWin;
     }
@@ -20,11 +23,11 @@ public class CardSetInfo {
     public Card[] createCards(){
         Card[] cardArray = new Card[numToSend];
         for(int i = 0; i< numToWin;i++){
-            Card winnerCard = new Card(sub,email, name, message, true);
+            Card winnerCard = new Card(sub,email, name, message, prize, true);
             cardArray[i]=winnerCard;
         }
         for(int i = numToWin; i< numToSend;i++){
-            Card loserCard = new Card(sub, email, name, message, false);
+            Card loserCard = new Card(sub, email, name, message, prize, false);
             cardArray[i]=loserCard;
         }
         return cardArray;
@@ -46,6 +49,9 @@ public class CardSetInfo {
     public String getMessage() {
         return message;
     }
+
+    public String getPrize() {return prize;}
+
 
     public int getNumToSend() {
         return numToSend;
@@ -69,6 +75,10 @@ public class CardSetInfo {
         this.message = message;
     }
 
+    public void setPrize(String prize) {
+        this.prize = prize;
+    }
+
     public void setNumToSend(int numToSend) {
         this.numToSend = numToSend;
     }
@@ -88,6 +98,7 @@ public class CardSetInfo {
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", message='" + message + '\'' +
+                ", prize='" + prize + '\'' +
                 ", numToSend=" + numToSend +
                 ", numToWin=" + numToWin +
                 '}';

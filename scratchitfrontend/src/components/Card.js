@@ -26,7 +26,7 @@ function Card(props) {
                 <h1 className="block py-2 px-3 font-medium text-l">{props.message}</h1>
 
                 <Scratchcard id={props.id} isOpened={props.isOpened} isWinner={props.isWinner}
-                             isDisplayOnly={props.isDisplayOnly}/>
+                             isDisplayOnly={props.isDisplayOnly} prize={props.prize}/>
 
             </div>
             <br/>

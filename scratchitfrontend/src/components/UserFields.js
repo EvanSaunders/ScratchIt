@@ -12,6 +12,7 @@ export default function UserFields() {
     const [sub, setSub] = useState('');
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
+    const [prize, setPrize] = useState('');
     const [numToSend, setNumToSend] = useState(1);
     const [numToWin, setNumToWin] = useState(0);
     const [isOpen, setIsOpen] = useState(false)
@@ -45,6 +46,7 @@ export default function UserFields() {
             name,
             email: decodedToken.email, // Use the decodedToken directly for email
             message,
+            prize,
             numToSend: parseInt(numToSend, 10),
             numToWin: parseInt(numToWin, 10),
         };
@@ -91,7 +93,7 @@ export default function UserFields() {
             <form>
                 <div>
                     <label htmlFor="first_name"
-                           className="block mb-2 text-md font-medium text-gray-900 dark:text-white">Sender's
+                           className="block mb-2 text-md mt-5 font-medium text-gray-900 dark:text-white">Sender's
                         Name</label>
                     <input type="text" id="first_name"
                            onChange={(e) => setName(e.target.value)}
@@ -156,6 +158,16 @@ export default function UserFields() {
                            placeholder=""/>
                 </div>
 
+                <div>
+                    <label htmlFor="prize"
+                           className="block -2 mb-2 text-md font-medium text-gray-900 dark:text-white">
+                        Prize
+                    </label>
+                    <input type="text" id="prizee" onChange={(e) => setPrize(e.target.value)}
+                           className="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                           placeholder=""/>
+                </div>
+
                 <button
                     type="button"
                     onClick={(e) => {
@@ -169,7 +181,7 @@ export default function UserFields() {
             </form>
             <div
                 className="flex flex-col items-center justify-start mt-4 w-[500px] min-h-[500px] rounded-3xl bg-gray-100 text-wrap break-words mx-auto">
-                <h1 className="block py-2 px-3 font-medium text-2xl">{name} sent you a card</h1>
+                <h1 className="block py-2 px-3 font-medium text-2xl">{name} Sent You a Card!</h1>
                 <h1 className="block py-2 px-3 font-medium text-l">{message}</h1>
                 <img src="dottedcircle.png" alt="circle" width="250" height="250"/>
             </div>

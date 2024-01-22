@@ -9,6 +9,7 @@ function ViewCardPage() {
     const [id, setId] = useState("");
     const [name, setName] = useState("");
     const [message, setMessage] = useState("");
+    const [prize, setPrize] = useState("");
     const [isOpened, setIsOpened] = useState(false);
     const [isWinner, setIsWinner] = useState(false);
     const [sub, setSub] = useState("");
@@ -37,6 +38,7 @@ function ViewCardPage() {
                 setId(result.id);
                 setName(result.name);
                 setMessage(result.message);
+                setPrize(result.prize)
                 setIsOpened(result.is_opened);
                 setIsWinner(result.is_winner);
                 setSub(result.sub);
@@ -54,7 +56,7 @@ function ViewCardPage() {
     }, [jwtSub, sub]);
 
     return (
-        <div >
+        <div className="dark:bg-gray-800">
             <Appbar />
             {isDisplayOnly && (
                 <div className="flex flex-col items-center pt-4 py-2 px-3 font-medium">
@@ -71,6 +73,7 @@ function ViewCardPage() {
                 id={id}
                 name={name}
                 message={message}
+                prize={prize}
                 isOpened={isOpened}
                 isWinner={isWinner}
                 isDisplayOnly={isDisplayOnly}

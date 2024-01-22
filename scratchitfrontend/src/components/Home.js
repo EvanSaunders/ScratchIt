@@ -24,7 +24,7 @@ function Home() {
 
     return (
 
-        <div>
+        <div className="dark:bg-gray-800">
 
             <Appbar/>
             <div className="flex flex-col items-center  h-screen mt10">

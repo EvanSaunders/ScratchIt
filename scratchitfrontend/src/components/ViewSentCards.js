@@ -105,7 +105,7 @@ const ViewSentCards = () => {
 
 
     return (
-        <div>
+        <div className="dark:bg-gray-800">
             <Appbar/>
             <button onClick={toggleWinnerVisibility}>
                 {showWinner ? 'Hide Winner' : 'Show Winner'}

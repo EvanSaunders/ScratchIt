@@ -56,7 +56,7 @@ const ScratchCardComponent = (props) => (
         {props.isOpened ? (
             <div>
                 {props.isWinner ? (
-                    <h2>Congratulations! You WON!</h2>
+                    <h2>You won {props.prize}</h2>
                 ) : (
                     <h2>You Lost</h2>
                 )}
@@ -75,7 +75,7 @@ const ScratchCardComponent = (props) => (
                 >
 
                     {props.isWinner ? (
-                        <h2>Congratulations! You WON!</h2>
+                        <h2>You won {props.prize}</h2>
                     ) : (
                         <h2>You Lost</h2>
                     )}
@@ -88,12 +88,12 @@ const ScratchCardComponent = (props) => (
     class Scratchcard extends React.Component {
         render() {
             // Assume 'id' is passed as a prop to Scratchcard component
-            const {id, isOpened, isWinner, isDisplayOnly} = this.props;
+            const {id, isOpened, isWinner, isDisplayOnly, prize} = this.props;
 
 
             return (
                 <div>
-                    <ScratchCardComponent id={id} isOpened ={isOpened} isWinner = {isWinner} isDisplayOnly = {isDisplayOnly}/>
+                    <ScratchCardComponent id={id} isOpened ={isOpened} isWinner = {isWinner} isDisplayOnly = {isDisplayOnly} prize = {prize}/>
                 </div>
             );
         }
