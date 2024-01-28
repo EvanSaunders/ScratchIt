@@ -18,15 +18,49 @@ import ViewSentCards from "./components/ViewSentCards";
 const App = () => {
 
 
-     // Empty dependency array means this effect runs once when the component mounts
 
+    useEffect(() => {
+        var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        var themeToggleBtn = document.getElementById('theme-toggle');
+
+        // Function to set the theme based on the preference
+        const setTheme = (theme) => {
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+                themeToggleLightIcon.classList.remove('hidden');
+                themeToggleDarkIcon.classList.add('hidden');
+            } else {
+                document.documentElement.classList.remove('dark');
+                themeToggleLightIcon.classList.add('hidden');
+                themeToggleDarkIcon.classList.remove('hidden');
+            }
+        };
+
+        // Change the icons inside the button based on previous settings
+        if (localStorage.getItem('color-theme') === 'dark' || (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+
+        // Event listener for the theme toggle button
+        themeToggleBtn.addEventListener('click', function () {
+            // Toggle and store theme preference
+            const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            setTheme(newTheme);
+            localStorage.setItem('color-theme', newTheme);
+        });
+    }, []);
 
 
 
 
     return (
 
-        <AuthProvider>
+        <AuthProvider >
         <BrowserRouter>
             <Routes>
 
