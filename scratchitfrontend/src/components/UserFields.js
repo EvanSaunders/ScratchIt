@@ -6,6 +6,7 @@ import { jwtDecode } from "jwt-decode";
 import { Dialog } from '@headlessui/react'
 import Card from "./Card";
 import Scratchcard from "./Scratchcardpage";
+import cardImage from "../assets/scratchcircle2.png";
 
 export default function UserFields() {
 
@@ -163,9 +164,15 @@ export default function UserFields() {
                            className="block -2 mb-2 text-md font-medium text-gray-900 dark:text-white">
                         Prize
                     </label>
-                    <input type="text" id="prizee" onChange={(e) => setPrize(e.target.value)}
-                           className="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                           placeholder=""/>
+                    <input
+                        type="text"
+                        id="prizee"
+                        onChange={(e) => setPrize(e.target.value)}
+                        maxLength="200"
+                        className="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder=""
+                        />
+
                 </div>
 
                 <button
@@ -179,12 +186,14 @@ export default function UserFields() {
                     Submit
                 </button>
             </form>
-            <div
-                className="flex flex-col items-center justify-start mt-4 w-[500px] min-h-[500px] rounded-3xl bg-gray-100 text-wrap break-words mx-auto">
+            <div className="flex flex-col items-center justify-center mt-4 w-[500px] min-h-[500px] rounded-3xl bg-gray-100 text-wrap break-words mx-auto relative">
                 <h1 className="block py-2 px-3 font-medium text-2xl">{name} Sent You a Card!</h1>
                 <h1 className="block py-2 px-3 font-medium text-l">{message}</h1>
-                <img src="dottedcircle.png" alt="circle" width="250" height="250"/>
+                <h1 className=" font-medium text-large absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-[50%] text-center">{prize}</h1>
+
+                <img src="scratchcircle2.png" className="content-center opacity-30" alt="circle" width="350" height="350"/>
             </div>
+
             <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
                 <Dialog.Panel>
                     <div className="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">

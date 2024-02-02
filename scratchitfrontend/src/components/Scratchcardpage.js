@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from "react";
 import ScratchCard from "react-scratchcard";
 
-import cardImage from "../assets/scratchcircle.jpg";
+import cardImage from "../assets/scratchcircle2.png";
 
 
 
 
     const settings = {
 
-        width: 250,
-        height: 250,
+        width: 350,
+        height: 350,
         image: cardImage,
-        finishPercent: 50,
+        finishPercent: 40,
 
 
 
@@ -52,30 +52,21 @@ import cardImage from "../assets/scratchcircle.jpg";
 
 const ScratchCardComponent = (props) => (
 
-    <div style={{ display: "flex", justifyContent: "center", height: "30vh" }}>
+    <div className="flex justify-center items-center h-30vh  break-words">
         {props.isOpened ? (
-            <div>
+            <div className="font-medium text-large absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-[50%] text-center">
                 {props.isWinner ? (
-                    <h2>You won {props.prize}</h2>
+                    <h2 className="text-center">{props.prize}</h2>
                 ) : (
-                    <h2>You Lost</h2>
+                    <h2 className="text-center">You Lost</h2>
                 )}
             </div>
         ) : (
-            <ScratchCard {...settings} style={{ position: "relative" }} onComplete={() => settings.onComplete(props.id, props.isDisplayOnly)}>
-                {/* ... other components */}
-                <div
-                    style={{
-                        position: "absolute",
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
-                        textAlign: "center",
-                    }}
-                >
+            <ScratchCard {...settings} className="relative" onComplete={() => settings.onComplete(props.id, props.isDisplayOnly)}>
 
+                <div className="font-medium text-large absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-[50%] text-center">
                     {props.isWinner ? (
-                        <h2>You won {props.prize}</h2>
+                        <h2>{props.prize}</h2>
                     ) : (
                         <h2>You Lost</h2>
                     )}
@@ -83,6 +74,7 @@ const ScratchCardComponent = (props) => (
             </ScratchCard>
         )}
     </div>
+
 );
 
     class Scratchcard extends React.Component {

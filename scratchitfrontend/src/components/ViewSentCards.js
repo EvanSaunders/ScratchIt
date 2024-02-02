@@ -11,6 +11,7 @@ const ViewSentCards = () => {
     const jwtToken = localStorage.getItem('jwtToken');
     const [decodedToken, setDecodedToken] = useState('');
     const [sub, setSub] = useState('');
+    const [prize, setPrize] = useState("");
     const [showWinner, setShowWinner] = useState(false);
     const [note, setNote] = useState('');
     const navigate = useNavigate();
@@ -127,6 +128,7 @@ const ViewSentCards = () => {
                         id={card.id}
                         name={card.name}
                         message={card.message}
+                        prize={card.prize}
                         isOpened={card.is_opened}
                         isWinner={card.is_winner}
                         isDisplayOnly={true}
