@@ -21,7 +21,7 @@ function Card(props) {
         <div>
             <br/>
             <div
-                className="flex flex-col items-center justify-center mt-4 w-[500px] min-h-[500px] rounded-3xl bg-gray-100 text-wrap break-words mx-auto relative">
+                className="flex flex-col items-center mt-4 w-[500px] min-h-[500px] rounded-3xl bg-gray-100 text-wrap break-words mx-auto relative">
                 <h1 className="block py-2 px-3 font-medium text-2xl">{props.name} sent you a card!</h1>
                 <h1 className="block py-2 px-3 font-medium text-l">{props.message}</h1>
 

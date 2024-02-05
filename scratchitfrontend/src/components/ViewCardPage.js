@@ -15,6 +15,7 @@ function ViewCardPage() {
     const [sub, setSub] = useState("");
     const [isDisplayOnly, setIsDisplayOnly] = useState(false);
     const [jwtSub, setJwtSub] = useState("");
+    const [confettiVisible, setConfettiVisible] = useState(false);
 
     useEffect(() => {
         const jwtToken = localStorage.getItem("jwtToken");
@@ -24,6 +25,10 @@ function ViewCardPage() {
         } else {
             setJwtSub("0");
         }
+
+        const handleConfettiVisible = (value) => {
+            setConfettiVisible(value);
+        };
 
         const fetchData = async () => {
             try {
@@ -60,10 +65,10 @@ function ViewCardPage() {
             <Appbar />
             {isDisplayOnly && (
                 <div className="flex flex-col items-center pt-4 py-2 px-3 font-medium">
-                <p  className="text-2xl">
+                <p  className="text-2xl dark:text-white">
                     PREVIEW CARD:
                 </p>
-                    <p className="text-xl">
+                    <p className="text-xl dark:text-white">
                         You made this card. Scratching it will not open it
                     </p>
                 </div>

@@ -1,3 +1,4 @@
 delete card is broken
 make sure card in userfields matches card in Card
 possibly revise card creation, make it easier, one card at a time, just put text in circle, no winner or loser
+viewSentCards: presing copy puts a check on every one, dark mode wonky in text boxes, show winner keep?, make userfields redirect to viewcards page

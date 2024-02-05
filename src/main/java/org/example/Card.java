@@ -24,7 +24,7 @@ public class Card {
     @Column(name = "message", nullable = true, columnDefinition = "TEXT")
     private String message;
 
-    @Column(name = "prize", nullable = false, columnDefinition = "TEXT")
+    @Column(name = "prize", nullable = true, columnDefinition = "TEXT")
     private String prize;
     @Column(name = "is_winner", nullable = false, columnDefinition = "BOOLEAN")
     private Boolean is_winner;
