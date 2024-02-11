@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import { jwtDecode } from "jwt-decode";
 import { Dialog } from '@headlessui/react'
 import Card from "./Card";
-import Scratchcard from "./Scratchcardpage";
+
 import cardImage from "../assets/scratchcircle2.png";
 import {useNavigate} from "react-router-dom";
 

@@ -3,7 +3,7 @@ import { jwtDecode } from 'jwt-decode';
 import Appbar from './Appbar';
 import { useNavigate } from 'react-router-dom';
 
-import Scratchcard from "./Scratchcardpage";
+
 import Card from "./Card";
 
 import { Typography, Button } from "@material-tailwind/react";
@@ -122,6 +122,7 @@ const ViewSentCards = () => {
                         {sentCards.map((card) => (
                             <div key={card.id} className="group">
 
+
                                     <Card
                                         id={card.id}
                                         name={card.name}
@@ -130,6 +131,11 @@ const ViewSentCards = () => {
                                         isOpened={card.is_opened}
                                         isDisplayOnly={true}
                                     />
+                                {card.is_opened && (
+                                    <p className="mb-4 text-xl dark:text-white text-center">
+                                        This card has been Opened!
+                                    </p>
+                                )}
 
                                     <div className="flex items-center gap-x-4 justify-center ">
                                         <Button

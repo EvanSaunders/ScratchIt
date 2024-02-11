@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a00088a-eac7-49a3-8318-fa8e976f6752" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d3084a40-1c31-476c-883d-a51771e07b86.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d3084a40-1c31-476c-883d-a51771e07b86.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d3084a40-1c31-476c-883d-a51771e07b86/storage_v2/_src_/database/railway.Hf4GOg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d3084a40-1c31-476c-883d-a51771e07b86/storage_v2/_src_/database/railway.Hf4GOg/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/todo" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/todo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scratchitfrontend/src/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/scratchitfrontend/src/components/Card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scratchitfrontend/src/components/CreatePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/scratchitfrontend/src/components/CreatePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scratchitfrontend/src/components/Scratchcardpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/scratchitfrontend/src/components/Scratchcardpage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scratchitfrontend/src/components/UserFields.js" beforeDir="false" afterPath="$PROJECT_DIR$/scratchitfrontend/src/components/UserFields.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scratchitfrontend/src/components/ViewCardPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/scratchitfrontend/src/components/ViewCardPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scratchitfrontend/src/components/ViewSentCards.js" beforeDir="false" afterPath="$PROJECT_DIR$/scratchitfrontend/src/components/ViewSentCards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CardSetInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CardSetInfo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +20,8 @@
         <option value="spring-beans.schema" />
         <option value="Interface" />
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -193,7 +184,7 @@
       <workItem from="1706902195439" duration="4661000" />
       <workItem from="1707156688968" duration="5569000" />
       <workItem from="1707162510166" duration="5086000" />
-      <workItem from="1707677207387" duration="5426000" />
+      <workItem from="1707677207387" duration="10130000" />
     </task>
     <servers />
   </component>
@@ -221,6 +212,11 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/scratchitfrontend/src/components/UserFields.js</url>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/scratchitfrontend/src/components/Card.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
