@@ -61,7 +61,7 @@ function ViewCardPage() {
     }, [jwtSub, sub]);
 
     return (
-        <div className="dark:bg-gray-800">
+        <div className="dark:bg-gray-800 min-h-screen">
             <Appbar />
             {isDisplayOnly && (
                 <div className="flex flex-col items-center pt-4 py-2 px-3 font-medium">
