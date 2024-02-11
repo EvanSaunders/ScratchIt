@@ -20,8 +20,9 @@ function CreatePage() {
     }, []);
 
     return (
-        <div className="dark:bg-gray-800">
+        <div className="dark:bg-gray-800 min-h-screen">
             <Appbar/>
+
             <UserFields/>
 
         </div>

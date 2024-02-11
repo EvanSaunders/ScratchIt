@@ -17,7 +17,6 @@ const ViewSentCards = () => {
     const [decodedToken, setDecodedToken] = useState('');
     const [sub, setSub] = useState('');
     const [prize, setPrize] = useState("");
-    const [showWinner, setShowWinner] = useState(false);
     const [note, setNote] = useState('');
     const navigate = useNavigate();
     const [value, copy] = useCopyToClipboard();
@@ -52,9 +51,7 @@ const ViewSentCards = () => {
         fetchData();
     }, [jwtToken, navigate]);
 
-    const toggleWinnerVisibility = () => {
-        setShowWinner(!showWinner);
-    };
+
 
     const handleTextareaChange = (event) => {
         setNote(event.target.value);
@@ -118,9 +115,6 @@ const ViewSentCards = () => {
         <div className="dark:bg-gray-800 min-h-screen">
 
             <Appbar/>
-            <button onClick={toggleWinnerVisibility}>
-                {showWinner ? 'Hide Winner' : 'Show Winner'}
-            </button>
             <div className="dark:bg-gray-800">
                 <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
                     <h2 className="sr-only">Products</h2>
@@ -134,7 +128,6 @@ const ViewSentCards = () => {
                                         message={card.message}
                                         prize={card.prize}
                                         isOpened={card.is_opened}
-                                        isWinner={card.is_winner}
                                         isDisplayOnly={true}
                                     />
 
@@ -142,7 +135,7 @@ const ViewSentCards = () => {
                                         <Button
                                             onMouseLeave={() => setCopied(false)}
                                             onClick={() => {
-                                                copy("http://localhost:3000/view-card/${card.id}");
+                                                copy("http://localhost:3000/view-card/"+card.id);
                                                 setCopied(true);
                                             }}
                                             className="flex items-center bg-blue-700 gap-x-3 px-4 py-2.5 lowercase"

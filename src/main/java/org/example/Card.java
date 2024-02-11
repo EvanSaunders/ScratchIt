@@ -26,8 +26,6 @@ public class Card {
 
     @Column(name = "prize", nullable = true, columnDefinition = "TEXT")
     private String prize;
-    @Column(name = "is_winner", nullable = false, columnDefinition = "BOOLEAN")
-    private Boolean is_winner;
 
     @Column(name = "is_opened", nullable = false, columnDefinition = "BOOLEAN")
     private Boolean is_opened;
@@ -36,14 +34,13 @@ public class Card {
     private String note;
 
 
-    public Card(String sub, String email, String name, String message, String prize, Boolean is_winner) {
+    public Card(String sub, String email, String name, String message, String prize) {
 
         this.sub = sub;
         this.email = email;
         this.name = name;
         this.message = message;
         this.prize = prize;
-        this.is_winner = is_winner;
         is_opened = false;
         note = "";
 
@@ -78,9 +75,6 @@ public class Card {
         return prize;
     }
 
-    public Boolean getIs_winner() {
-        return is_winner;
-    }
 
     public Boolean getIs_opened() {
         return is_opened;
@@ -117,9 +111,6 @@ public class Card {
         this.is_opened = is_opened;
     }
 
-    public void setIs_winner(Boolean is_winner) {
-        is_winner = is_winner;
-    }
 
     public void setNote(String note) {
         this.note = note;
@@ -134,7 +125,6 @@ public class Card {
                 ", name='" + name + '\'' +
                 ", message='" + message + '\'' +
                 ", prize='" + prize + '\'' +
-                ", is_winner=" + is_winner +
                 ", is_opened=" + is_opened +
                 ", note='" + note + '\'' +
                 '}';

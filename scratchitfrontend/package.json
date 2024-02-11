@@ -27,6 +27,7 @@
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.19.0",
     "react-scratchcard": "^1.1.2",
+    "react-scratchcard-v2": "^1.1.1",
     "react-scripts": "^5.0.1",
     "usehooks-ts": "^2.12.1",
     "web-vitals": "^2.1.4"

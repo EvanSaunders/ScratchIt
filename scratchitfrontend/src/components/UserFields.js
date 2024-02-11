@@ -7,6 +7,7 @@ import { Dialog } from '@headlessui/react'
 import Card from "./Card";
 import Scratchcard from "./Scratchcardpage";
 import cardImage from "../assets/scratchcircle2.png";
+import {useNavigate} from "react-router-dom";
 
 export default function UserFields() {
 
@@ -15,8 +16,8 @@ export default function UserFields() {
     const [message, setMessage] = useState('');
     const [prize, setPrize] = useState('');
     const [numToSend, setNumToSend] = useState(1);
-    const [numToWin, setNumToWin] = useState(0);
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const jwtToken = localStorage.getItem('jwtToken');
@@ -27,7 +28,6 @@ export default function UserFields() {
                 const decodedToken = jwtDecode(jwtToken);
                 setName(`${decodedToken.given_name} ${decodedToken.family_name}`);
                 setSub(decodedToken.sub);
-                console.log("named");
             } catch (error) {
                 console.error('Error decoding token:', error);
             }
@@ -40,7 +40,6 @@ export default function UserFields() {
         const decodedToken = jwtDecode(jwtToken);
         const currentSub = sub; // Store the current value of sub
 
-        console.log('Current sub value:', currentSub); // Log the current value of sub
         setIsOpen(false);
         const cardSetInfo = {
             sub: currentSub, // Use the stored value of sub
@@ -48,8 +47,7 @@ export default function UserFields() {
             email: decodedToken.email, // Use the decodedToken directly for email
             message,
             prize,
-            numToSend: parseInt(numToSend, 10),
-            numToWin: parseInt(numToWin, 10),
+            numToSend: parseInt(numToSend, 10)
         };
 
 
@@ -61,35 +59,29 @@ export default function UserFields() {
             body: JSON.stringify(cardSetInfo)
         })
             .then(response => {
+                console.log(cardSetInfo);
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
                 return response.json();
+
             })
             .then(data => {
                 console.log("New UserFields:", data);
+                navigate("/view-sent-cards");
             })
             .catch(error => {
 
-
+                navigate("/view-sent-cards");
                 console.error("Error submitting card:", error);
             });
+
 
     };
 
 
-
-
-    //SET MAX CHARACTERS
-    //
-    //
-    //
-    //
-    //
-    //
-
-
     return (
+
         <Container>
             <form>
                 <div>
@@ -101,7 +93,7 @@ export default function UserFields() {
                            className=" mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                            placeholder={name} required/>
                 </div>
-                <div className="grid gap-6 mb-6 md:grid-cols-2">
+                <div className="grid gap-6 mb-6 ">
                     <div>
                         <label htmlFor="numToSend"
                                className="block mb-2 text-md font-medium text-gray-900 dark:text-white">
@@ -115,38 +107,14 @@ export default function UserFields() {
                                 const newValue = e.target.value;
                                 if (/^[0-9]*$/.test(newValue) && newValue >= 1 && newValue <= 5) {
                                     setNumToSend(newValue);
+                                }
+                            }}
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder=""
+                            required
+                        />
+                    </div>
 
-                                    // Ensure numToWin is not greater than numToSend
-                                    if (numToWin > newValue) {
-                                        setNumToWin(newValue);
-                                    }
-                                }
-                            }}
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder=""
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="numToWin"
-                               className="block mb-2 text-md font-medium text-gray-900 dark:text-white">
-                            How should Win?
-                        </label>
-                        <input
-                            type="number"
-                            id="numToWin"
-                            value={numToWin}
-                            onChange={(e) => {
-                                const newValue = e.target.value;
-                                if (/^[0-9]*$/.test(newValue) && newValue >= 1 && newValue <= numToSend) {
-                                    setNumToWin(newValue);
-                                }
-                            }}
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder=""
-                            required
-                        />
-                    </div>
                 </div>
 
                 <div>
@@ -156,7 +124,8 @@ export default function UserFields() {
                     </label>
                     <input type="text" id="message" onChange={(e) => setMessage(e.target.value)}
                            className="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                           placeholder=""/>
+                           placeholder=""
+                           maxLength="2000"/>
                 </div>
 
                 <div>
@@ -186,12 +155,13 @@ export default function UserFields() {
                     Submit
                 </button>
             </form>
-            <div className="flex flex-col items-center justify-center mt-4 w-[500px] min-h-[500px] rounded-3xl bg-gray-100 text-wrap break-words mx-auto relative">
+            <div className="flex flex-col items-center justify-center mt-4  w-[500px] min-h-[500px] rounded-3xl bg-gray-100 text-wrap break-words mx-auto relative">
                 <h1 className="block py-2 px-3 font-medium text-2xl">{name} Sent You a Card!</h1>
                 <h1 className="block py-2 px-3 font-medium text-l">{message}</h1>
-                <h1 className=" font-medium text-large absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-[50%] text-center">{prize}</h1>
-
-                <img src="scratchcircle2.png" className="content-center opacity-30" alt="circle" width="350" height="350"/>
+                <div className="relative">
+                    <h1 className="font-medium text-large absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">{prize}</h1>
+                    <img src="scratchcircle2.png" className="content-center opacity-30" alt="circle" width="350" height="350" />
+                </div>
             </div>
 
             <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
@@ -221,8 +191,8 @@ export default function UserFields() {
                                                     id="modal-title">Create Cards?</h3>
                                                 <div className="mt-2">
                                                     <p className="text-sm text-gray-500">
-                                                        You will create <strong>{numToSend} Cards</strong>,
-                                                        and <strong>{numToWin} will be winners</strong>. Send them via
+                                                        You will create <strong>{numToSend} Cards</strong>.
+                                                        Send them via
                                                         the View Cards Page
                                                     </p>
 

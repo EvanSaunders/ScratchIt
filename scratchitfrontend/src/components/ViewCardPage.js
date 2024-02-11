@@ -11,7 +11,6 @@ function ViewCardPage() {
     const [message, setMessage] = useState("");
     const [prize, setPrize] = useState("");
     const [isOpened, setIsOpened] = useState(false);
-    const [isWinner, setIsWinner] = useState(false);
     const [sub, setSub] = useState("");
     const [isDisplayOnly, setIsDisplayOnly] = useState(false);
     const [jwtSub, setJwtSub] = useState("");
@@ -45,7 +44,6 @@ function ViewCardPage() {
                 setMessage(result.message);
                 setPrize(result.prize)
                 setIsOpened(result.is_opened);
-                setIsWinner(result.is_winner);
                 setSub(result.sub);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -80,7 +78,6 @@ function ViewCardPage() {
                 message={message}
                 prize={prize}
                 isOpened={isOpened}
-                isWinner={isWinner}
                 isDisplayOnly={isDisplayOnly}
             />
         </div>

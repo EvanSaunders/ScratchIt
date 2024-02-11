@@ -55,21 +55,13 @@ const ScratchCardComponent = (props) => (
     <div className="flex justify-center items-center h-30vh  break-words">
         {props.isOpened ? (
             <div className="font-medium text-large absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-[50%] text-center">
-                {props.isWinner ? (
-                    <h2 className="text-center">{props.prize}</h2>
-                ) : (
-                    <h2 className="text-center">You Lost</h2>
-                )}
+                    <h2>{props.prize}</h2>
             </div>
         ) : (
             <ScratchCard {...settings} className="relative" onComplete={() => settings.onComplete(props.id, props.isDisplayOnly)}>
 
                 <div className="font-medium text-large absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-[50%] text-center">
-                    {props.isWinner ? (
                         <h2>{props.prize}</h2>
-                    ) : (
-                        <h2>You Lost</h2>
-                    )}
                 </div>
             </ScratchCard>
         )}
@@ -80,12 +72,12 @@ const ScratchCardComponent = (props) => (
     class Scratchcard extends React.Component {
         render() {
             // Assume 'id' is passed as a prop to Scratchcard component
-            const {id, isOpened, isWinner, isDisplayOnly, prize} = this.props;
+            const {id, isOpened, isDisplayOnly, prize} = this.props;
 
 
             return (
                 <div>
-                    <ScratchCardComponent id={id} isOpened ={isOpened} isWinner = {isWinner} isDisplayOnly = {isDisplayOnly} prize = {prize}/>
+                    <ScratchCardComponent id={id} isOpened ={isOpened} isDisplayOnly = {isDisplayOnly} prize = {prize}/>
                 </div>
             );
         }
