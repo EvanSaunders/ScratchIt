@@ -17,7 +17,6 @@ const Login = () => {
 
 
     useEffect(() => {
-
         const jwtToken = localStorage.getItem('jwtToken');
         if(!jwtToken){
             /* global google */
