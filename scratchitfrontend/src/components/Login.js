@@ -22,7 +22,7 @@ const Login = () => {
         if(!jwtToken){
             /* global google */
             google.accounts.id.initialize({
-                client_id: "282650218440-6vb2j84rru32vf15iuli4bddqdpkq61l.apps.googleusercontent.com",
+                client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
                 callback: handleCallbackResponse
             })
 
