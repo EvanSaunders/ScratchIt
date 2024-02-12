@@ -13,4 +13,4 @@ React\
 Java\
 SpringBoot\
 PostgreSQL\
-Tailwind CSS\
+Tailwind CSS
