@@ -24,4 +24,4 @@ yarn-error.log*
 scratchitfrontend/.env
 .env
 src/main/resources/application.properties
-target
+target/
