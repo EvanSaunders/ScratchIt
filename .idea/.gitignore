@@ -8,3 +8,4 @@
 /dataSources.local.xml
 scratchitfrontend/.env
 src/main/resources/application.properties
+target\

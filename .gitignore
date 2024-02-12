@@ -1,3 +1,4 @@
 .env
 scratchitfrontend\.env
 src/main/resources/application.properties
+target\
