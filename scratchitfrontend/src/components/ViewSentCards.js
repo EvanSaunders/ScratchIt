@@ -44,7 +44,7 @@ const ViewSentCards = () => {
                 }
             } catch (error) {
                 console.error('Error during fetch:', error.message);
-                navigate('/login');
+                navigate("/NotFound");
             }
         };
 
@@ -116,9 +116,15 @@ const ViewSentCards = () => {
 
             <Appbar/>
             <div className="dark:bg-gray-800">
+                {sentCards.length ===0 && (
+                    <div className="flex-1 flex justify-center items-center text-black dark:text-white">
+                        <h1 className="text-3xl mt-8">You have no active cards</h1>
+                    </div>
+                )}
                 <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
                     <h2 className="sr-only">Products</h2>
                     <div className="grid grid-cols-1 gap-x-100 gap-y-10 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 xl:gap-x-100">
+
                         {sentCards.map((card) => (
                             <div key={card.id} className="group">
 
@@ -131,6 +137,7 @@ const ViewSentCards = () => {
                                         isOpened={card.is_opened}
                                         isDisplayOnly={true}
                                     />
+
                                 {card.is_opened && (
                                     <p className="mb-4 text-xl dark:text-white text-center">
                                         This card has been Opened!

@@ -12,6 +12,7 @@ import {gapi} from "gapi-script";
 import { jwtDecode } from "jwt-decode";
 import Login from "./components/Login";
 import ViewSentCards from "./components/ViewSentCards";
+import NotFound from "./components/NotFound";
 
 
 
@@ -70,6 +71,8 @@ const App = () => {
                 <Route path="/view-card" element={<ViewCardPage />}></Route>
                 <Route path="/view-card/:primaryKey" element={<ViewCardPage />} />
                 <Route path="/view-sent-cards" element={<ViewSentCards/>}/>
+
+                <Route path='*' element={<NotFound />}/>
 
             </Routes>
         </BrowserRouter>

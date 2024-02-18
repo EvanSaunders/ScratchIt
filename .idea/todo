@@ -7,3 +7,4 @@ fix dark mode flash when loading
 make hamburger menu work when page is zoomed in
 fix white line under userFields if the card has mb-
 make login page look good
+make error page

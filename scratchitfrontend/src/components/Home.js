@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Component } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Appbar from './Appbar';
-
 import { gapi } from 'gapi-script';
 import app from "../App";
+import {Shift} from 'ambient-cbg'
+import silogo from "../assets/scratchit-01.png";
 
 
 
@@ -24,18 +25,19 @@ function Home() {
 
     return (
 
-        <div className="dark:bg-gray-800">
-
-            <Appbar/>
-            <div className="flex flex-col items-center  h-screen mt10">
-            <div >
-            <button onClick={handleNavigation} className="bg-orange-500 hover:bg-orange-400 text-white font-bold py-2 px-4 border-b-4 border-orange-700 hover:border-orange-500 rounded mb-8">Navigate to Create Cards</button>
+        <div className="min-h-screen flex flex-col">
+            <Appbar />
+            <div className="flex-1 flex flex-col justify-center items-center text-white">
+                <div className="mb-8">
+                    <img src={silogo} className="w-64 h-auto mx-auto" alt="Logo"/>
+                    <h1 className="text-7xl">ScratchIt!</h1>
+                </div>
+                <h1 className="text-2xl">Create and Distribute Scratch Off Cards</h1>
             </div>
-            <div>
-            <button onClick={handleNavigation2} className="bg-orange-500 hover:bg-orange-400 text-white font-bold py-2 px-4 border-b-4 border-orange-700 hover:border-orange-500 rounded" >Navigate to View Cards</button>
-            </div>
-            </div>
+            <Shift />
         </div>
+
+
     );
 }
 

@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {jwtDecode} from "jwt-decode";
 import {useNavigate} from "react-router-dom";
+import Appbar from "./Appbar";
+
 
 const Login = () => {
+
     const navigate = useNavigate();
     function handleCallbackResponse(response){
-        console.log("Encoded JWT ID token: " + response.credential);
         var userObject = jwtDecode(response.credential);
         localStorage.setItem('jwtToken', response.credential)
         console.log(jwtDecode(localStorage.getItem('jwtToken')));
@@ -18,6 +20,7 @@ const Login = () => {
 
     useEffect(() => {
         const jwtToken = localStorage.getItem('jwtToken');
+        const google = window.google;
         if(!jwtToken){
             /* global google */
             google.accounts.id.initialize({
@@ -37,6 +40,7 @@ const Login = () => {
     }, []);
 
     return (
+
         <div id="signInDiv"></div>
     );
 };

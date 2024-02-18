@@ -80,6 +80,11 @@ function ViewCardPage() {
                 isOpened={isOpened}
                 isDisplayOnly={isDisplayOnly}
             />
+                {isOpened && (
+                    <p className="mb-4 text-xl dark:text-white text-center">
+                        This card has been Opened!
+                    </p>
+                )}
         </div>
         </div>
     );
