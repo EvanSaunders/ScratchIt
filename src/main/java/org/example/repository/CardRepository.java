@@ -17,4 +17,5 @@ public interface CardRepository extends JpaRepository<Card, UUID> {
     List<Card> findBySub(String sub);
 
 
+    int countBySub(String sub);
 }

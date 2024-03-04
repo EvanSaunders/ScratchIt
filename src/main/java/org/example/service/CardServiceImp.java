@@ -32,10 +32,6 @@ public class CardServiceImp implements CardService {
         cardRepository.deleteById(id);
     }
 
-    @Override
-    public List<Card> getAllCards() {
-        return cardRepository.findAll();
-    }
 
     @Override
     public Optional<Card> findById(UUID primaryKey){return cardRepository.findById(primaryKey);}
@@ -43,4 +39,7 @@ public class CardServiceImp implements CardService {
 
     @Override
     public List<Card> findBySub(String sub){return cardRepository.findBySub(sub);}
+
+    @Override
+    public int countBySub(String sub){return cardRepository.countBySub(sub);}
 }

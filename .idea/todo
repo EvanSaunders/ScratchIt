@@ -1,10 +1,9 @@
-delete card is broken
-make sure card in userfields matches card in Card
-possibly revise card creation, make it easier, one card at a time, just put text in circle, no winner or loser
-viewSentCards: presing copy puts a check on every one, dark mode wonky in text boxes, show winner keep?, make userfields redirect to viewcards page
-make "you have no active cards"
+fix card word leak title
 fix dark mode flash when loading
 make hamburger menu work when page is zoomed in
-fix white line under userFields if the card has mb-
 make login page look good
 make error page
+change tab title and logo
+add instructions
+add backend protection
+

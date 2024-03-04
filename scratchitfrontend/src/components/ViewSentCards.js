@@ -28,7 +28,6 @@ const ViewSentCards = () => {
             return;
         }
 
-
         const fetchData = async () => {
             try {
                 const decoded = jwtDecode(jwtToken);
@@ -138,11 +137,16 @@ const ViewSentCards = () => {
                                         isDisplayOnly={true}
                                     />
 
-                                {card.is_opened && (
+                                {card.is_opened ? (
                                     <p className="mb-4 text-xl dark:text-white text-center">
                                         This card has been Opened!
                                     </p>
-                                )}
+                                ) : (
+                                    <p className="mb-4 text-xl dark:text-white text-center">
+                                        Send this Link
+                                    </p>
+                                )
+                                }
 
                                     <div className="flex items-center gap-x-4 justify-center ">
                                         <Button

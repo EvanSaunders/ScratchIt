@@ -47,7 +47,7 @@ function Card(props) {
             <br />
             {!props.isOpened ? (
                 <div className="flex flex-col items-center mt-4 w-[500px] min-h-[500px] rounded-3xl bg-gray-100 text-wrap break-words mx-auto relative">
-                    <h1 className="block py-2 px-3 font-medium text-2xl">{props.name} sent you a card!</h1>
+                    <h1 className="block py-2 px-3 font-medium text-2xl">{props.name}</h1>
                     <h1 className="block py-2 px-3 font-medium text-l break-words">{props.message}</h1>
                     <div>
                         <ScratchCard className="flex items-center justify-center w-full h-full" width={350} height={350} image={cardImage} finishPercent={40} onComplete={handleComplete}>
@@ -59,7 +59,7 @@ function Card(props) {
                 </div>
             ) : (
                 <div className="flex flex-col items-center mt-4 w-[500px] min-h-[500px] rounded-3xl bg-gray-100 text-wrap break-words mx-auto relative border border-green-500 border-8">
-                    <h1 className="block py-2 px-3 font-medium text-2xl">{props.name} sent you a card!</h1>
+                    <h1 className="block py-2 px-3 font-medium text-2xl">{props.name}</h1>
                     <h1 className="block py-2 px-3 font-medium text-l break-words">{props.message}</h1>
                     <div style={{ width: '350px', height: '350px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <h1 className="font-medium text-large max-w-[50%] text-center">{props.prize}</h1>

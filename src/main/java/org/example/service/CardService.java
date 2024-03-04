@@ -14,11 +14,10 @@ public interface CardService {
     public void deleteCard(UUID id);
 
 
-    public List<Card> getAllCards();
-
+    
     public Optional<Card> findById(UUID primaryKey);
+    
+    public int countBySub(String sub);
 
-    public List<Card> findBySub(String sub);
-
-
+    List<Card> findBySub(String sub);
 }

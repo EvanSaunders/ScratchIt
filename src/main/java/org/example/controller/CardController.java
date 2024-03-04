@@ -81,5 +81,8 @@ public class CardController {
         return cardService.findById(primaryKey);
     }
 
+    @GetMapping("/get-num-active/{sub}")
+    public int getNumActive(@PathVariable String sub){return cardService.countBySub(sub);}
+
 
 }

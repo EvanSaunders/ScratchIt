@@ -11,7 +11,6 @@ function CreatePage() {
     useEffect(() => {
 
         const jwtToken = localStorage.getItem('jwtToken');
-        console.log(jwtToken);
         if(!jwtToken ){
             navigate('/login');
         }
